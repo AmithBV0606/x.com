@@ -8,7 +8,7 @@ import { BsThreeDots } from "react-icons/bs";
 
 export default function LeftSidebar() {
   return (
-    <div className="flex flex-col justify-between h-screen">
+    <div className="flex flex-col justify-between h-screen border-r border-gray-600">
       {/* Top part : */}
       <div className="flex flex-col gap-3">
         {/* Logo Icon : */}

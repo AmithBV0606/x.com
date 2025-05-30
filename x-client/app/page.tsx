@@ -1,8 +1,9 @@
 import LeftSidebar from "@/components/left-sidebar";
+import MobileNavigationItems from "@/static/MobileNavigation";
 
 export default function Home() {
   return (
-    <div className="container mx-auto h-screen">
+    <div className="container mx-auto h-screen relative">
       <div className="grid grid-cols-12 w-full h-screen">
         {/* Left Sidebar */}
         <div className="hidden md:block 2xl:col-span-3">
@@ -10,12 +11,21 @@ export default function Home() {
         </div>
 
         {/* Center Part */}
-        <div className="col-span-6 border border-x-[1.5px] border-y-0 border-gray-600">
-
-        </div>
+        <div className="col-span-6"></div>
 
         {/* Right Sidebar */}
-        <div className="col-span-3"></div>
+        <div className="hidden xl:block xl:col-span-2 2xl:col-span-3 border-l border-gray-600">
+          {/* Hello */}
+        </div>
+      </div>
+
+      {/* Navigation tabs for mobile screens :  */}
+      <div className="fixed bottom-0 h-14 border-t border-gray-600 sm:hidden w-full flex items-center justify-around">
+        {MobileNavigationItems.map((item) => (
+          <div key={item.id} className="p-2 hover:bg-[#1D1D20] rounded-full">
+            {<item.icon size={25} />}
+          </div>
+        ))}
       </div>
     </div>
   );
