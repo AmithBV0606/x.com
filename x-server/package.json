@@ -9,14 +9,12 @@
     "dev": "tsc-watch --onSuccess \"npm start\""
   },
   "devDependencies": {
-    "prisma": "^6.9.0",
     "tsc-watch": "^7.1.1",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "@apollo/server": "^4.12.2",
     "@as-integrations/express5": "^1.0.0",
-    "@prisma/client": "6.9.0",
     "body-parser": "^2.2.0",
     "express": "^5.1.0",
     "graphql": "^16.11.0"
