@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const roboto = Roboto({
   weight: "400",
@@ -18,8 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${roboto.className}  antialiased`}>{children}</body>
-    </html>
+    <GoogleOAuthProvider clientId="1013399091835-rp8j3j1ihljvuk2u0krs2l75b01lsfsc.apps.googleusercontent.com">
+      <html lang="en">
+        <body className={`${roboto.className}  antialiased`}>{children}</body>
+      </html>
+    </GoogleOAuthProvider>
   );
 }

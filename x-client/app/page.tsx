@@ -1,6 +1,7 @@
 import FeedCard from "@/components/feed-card";
 import LeftSidebar from "@/components/left-sidebar";
 import Navbar from "@/components/Navbar";
+import RightSidebar from "@/components/right-sidebar";
 import MobileNavigationItems from "@/static/MobileNavigation";
 
 export default function Home() {
@@ -27,7 +28,7 @@ export default function Home() {
 
         {/* Right Sidebar */}
         <div className="hidden xl:block xl:col-span-2 2xl:col-span-3 border-l border-gray-600">
-          {/* Hello */}
+          <RightSidebar />
         </div>
       </div>
 
