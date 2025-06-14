@@ -16,6 +16,12 @@ export default function Home() {
         {/* Center Part */}
         <div className="col-span-12 sm:col-span-11 xl:col-span-6 overflow-y-scroll">
           <Navbar />
+
+          {/* Login/Signup screen for mobile : */}
+          <div className="xl:hidden py-5 px-3 border-gray-600 border-b w-full">
+            <RightSidebar />
+          </div>
+
           <FeedCard />
           <FeedCard />
           <FeedCard />
@@ -27,7 +33,7 @@ export default function Home() {
         </div>
 
         {/* Right Sidebar */}
-        <div className="hidden xl:block xl:col-span-2 2xl:col-span-3 border-l border-gray-600">
+        <div className="hidden xl:block xl:col-span-2 2xl:col-span-3 border-l border-gray-600 w-full">
           <RightSidebar />
         </div>
       </div>

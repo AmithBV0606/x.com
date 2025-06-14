@@ -8,14 +8,14 @@ export default function RightSidebar() {
   []);
 
   return (
-    <div className="border border-gray-600 rounded-lg mt-5 ml-5 p-5">
+    <div className="border border-gray-600 rounded-lg sm:mt-5 xl:ml-5 p-5 xl:w-[350px] 2xl:w-[450px]">
       <h1 className="text-xl font-bold text-gray-300">New to X?</h1>
 
-      <p className="text-gray-400 my-2">
+      <p className="text-gray-400 my-2 mb-2">
         Signup and start sharing your thoughts!!.
       </p>
 
-      <GoogleLogin onSuccess={(cred) => console.log(cred)} />
+      <GoogleLogin width={500} onSuccess={(cred) => console.log(cred)} />
     </div>
   );
 }
