@@ -10,11 +10,11 @@ const dummyTrending: TrendingTopics[] = [
 
 export default function TrendingHashtag() {
   return (
-    <div className="sm:mt-5 p-5 xl:w-[490px]">
-      <div className="rounded-lg p-4 border border-gray-600 space-y-6">
-        <h1 className="text-2xl font-extrabold">What's happening</h1>
+    <div className="sm:mt-5 p-5 xl:w-[340px]">
+      <div className="rounded-lg p-4 border border-gray-600 space-y-4">
+        <h1 className="text-xl font-extrabold">What's happening</h1>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {dummyTrending.map((item, index) => (
             <div
               key={index}

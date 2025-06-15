@@ -10,10 +10,10 @@ export default function LeftSidebar() {
   return (
     <div className="flex flex-col justify-between h-screen border-r border-gray-600">
       {/* Top part : */}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-1">
         {/* Logo Icon : */}
-        <div className="mt-2 h-fit py-3 px-4 hover:bg-[#1D1D20] rounded-full cursor-pointer w-fit transition-all">
-          <FaXTwitter size={38} className="" />
+        <div className="mt-2 h-fit py-3 px-3 hover:bg-[#1D1D20] rounded-full cursor-pointer w-fit transition-all">
+          <FaXTwitter size={30} className="" />
         </div>
 
         {/* Sidebar Menu : */}
@@ -22,10 +22,10 @@ export default function LeftSidebar() {
             {SidebarMenuItems.map((item) => (
               <li
                 key={item.title}
-                className={`flex items-center gap-6 mb-3 cursor-pointer hover:bg-[#1D1D20] md:py-2 md:px-3 2xl:py-3 2xl:px-4 md:w-16 md:h-16 rounded-full 2xl:w-80`}
+                className={`flex items-center gap-3 mb-3 cursor-pointer hover:bg-[#1D1D20] md:py-2 md:px-3 2xl:py-3 2xl:px-4 md:w-12 md:h-12 rounded-full 2xl:w-64`}
               >
-                <span>{<item.icon size={35} />}</span>
-                <p className="text-2xl hidden 2xl:block font-semibold">
+                <span>{<item.icon size={25} />}</span>
+                <p className="text-xl hidden 2xl:block font-semibold">
                   {item.title}
                 </p>
               </li>
@@ -39,7 +39,7 @@ export default function LeftSidebar() {
           <div className="hidden 2xl:block">
             <Button
               variant={"secondary"}
-              className="rounded-full text-2xl font-bold py-7 2xl:w-[360px]"
+              className="rounded-full text-xl font-extrabold py-6 2xl:w-[250px]"
             >
               Post
             </Button>
@@ -49,7 +49,7 @@ export default function LeftSidebar() {
           <div className="2xl:hidden">
             <Button
               variant={"secondary"}
-              className="rounded-full text-3xl w-12 h-12 ml-2"
+              className="rounded-full text-3xl w-12 h-12"
             >
               <BsFeather size={40} />
             </Button>
@@ -58,17 +58,17 @@ export default function LeftSidebar() {
       </div>
 
       {/* Bottom part(Desktop) : */}
-      <div className="hidden 2xl:flex 2xl:items-center 2xl:justify-between mb-8 mx-6 px-2 py-4 cursor-pointer rounded-full hover:bg-[#1D1D20]">
+      <div className="hidden 2xl:flex 2xl:items-center 2xl:justify-between mb-8 mr-6 px-2 py-3 cursor-pointer rounded-full hover:bg-[#1D1D20]">
         {/* User info display : */}
-        <div className="flex gap-2 pl-2">
-          <Avatar className="w-14 h-14">
+        <div className="flex gap-2 pl-2 items-center">
+          <Avatar className="w-10 h-10">
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
 
           <div className="flex flex-col">
-            <span className="font-bold text-xl">Name</span>
-            <span className="text-gray-400 font-thin">@username</span>
+            <span className="font-bold text-md">Name</span>
+            <span className="text-gray-400 font-thin text-sm">@username</span>
           </div>
         </div>
 
@@ -80,7 +80,7 @@ export default function LeftSidebar() {
 
       {/* Bottom part(Mobile) : */}
       <div className="2xl:hidden ml-2">
-        <Avatar className="w-12 h-12 lg:w-14 lg:h-14 xl:h-16 xl:w-16 mb-4">
+        <Avatar className="w-10 h-10 lg:w-12 lg:h-12 xl:h-14 xl:w-14 mb-4">
           <AvatarImage src="https://github.com/shadcn.png" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>

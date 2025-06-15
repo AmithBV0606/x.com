@@ -29,14 +29,14 @@ export default function RightSidebar() {
   );
 
   return (
-    <div className="border border-gray-600 rounded-lg sm:mt-5 xl:ml-5 p-5 xl:w-[450px]">
-      <h1 className="text-xl font-bold text-gray-300">New to X?</h1>
+    <div className="border border-gray-600 rounded-lg sm:mt-5 xl:ml-5 p-3 xl:w-[300px]">
+      <h1 className="text-lg font-extrabold text-gray-300">New to X?</h1>
 
-      <p className="text-gray-400 my-2 mb-2">
+      <p className="text-gray-400 mb-2 text-sm">
         Signup and start sharing your thoughts!!.
       </p>
 
-      <GoogleLogin width={300} onSuccess={handleLoginWithGoogle} />
+      <GoogleLogin onSuccess={handleLoginWithGoogle} />
     </div>
   );
 }

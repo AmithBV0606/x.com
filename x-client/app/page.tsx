@@ -7,15 +7,15 @@ import MobileNavigationItems from "@/static/MobileNavigation";
 
 export default function Home() {
   return (
-    <div className="container mx-auto h-screen relative">
+    <div className="container mx-auto h-screen">
       <div className="grid grid-cols-12 w-full h-screen">
         {/* Left Sidebar */}
-        <div className="hidden md:block 2xl:col-span-3">
+        <div className="hidden md:block 2xl:col-span-3 md:pl-2 lg:pl-4 2xl:ml-24">
           <LeftSidebar />
         </div>
 
         {/* Center Part */}
-        <div className="col-span-12 sm:col-span-11 xl:col-span-6 overflow-y-scroll">
+        <div className="col-span-12 md:col-span-11 xl:col-span-5 overflow-y-scroll h-screen scrollbar-hide md:mr-[-26px] lg:mr-0 border-r border-gray-600">
           <Navbar />
 
           {/* Login/Signup screen for mobile : */}
@@ -34,7 +34,7 @@ export default function Home() {
         </div>
 
         {/* Right Sidebar */}
-        <div className="hidden xl:block xl:col-span-2 2xl:col-span-3 border-l border-gray-600 w-full">
+        <div className="hidden xl:block xl:col-span-2 2xl:col-span-3 border-gray-600 w-full">
           <RightSidebar />
           <TrendingHashtag />
         </div>
