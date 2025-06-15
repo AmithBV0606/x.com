@@ -6,6 +6,12 @@ export interface XSidebarButton {
 }
 
 export interface XMobileNavigation {
-  id: number,
+  id: number;
   icon: IconType;
+}
+
+export interface TrendingTopics {
+  category: string;
+  topic: string;
+  tweets: string;
 }
