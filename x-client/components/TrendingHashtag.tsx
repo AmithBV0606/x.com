@@ -10,7 +10,7 @@ const dummyTrending: TrendingTopics[] = [
 
 export default function TrendingHashtag() {
   return (
-    <div className="sm:mt-5 p-5 xl:w-[340px]">
+    <div className="sm:mt-5 p-5 xl:w-[390px]">
       <div className="rounded-lg p-4 border border-gray-600 space-y-4">
         <h1 className="text-xl font-extrabold">What's happening</h1>
 
