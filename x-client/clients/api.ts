@@ -7,7 +7,7 @@ export const graphqlClient = new GraphQLClient(
   {
     headers: () => ({
       Authorization: isClient
-        ? `Bearer ${window.localStorage.getItem("token")}`
+        ? `Bearer ${window.localStorage.getItem("_xtoken_")}`
         : "",
     }),
   }

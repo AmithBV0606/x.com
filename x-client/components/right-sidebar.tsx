@@ -21,8 +21,9 @@ export default function RightSidebar() {
 
       toast.success("Verification successfull!!");
       // console.log(verifyGoogleToken);
+
       if (verifyGoogleToken) {
-        window.localStorage.setItem("token", verifyGoogleToken)
+        window.localStorage.setItem("_xtoken_", verifyGoogleToken)
       }
     },
     []
