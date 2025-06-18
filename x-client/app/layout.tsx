@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <GoogleOAuthProvider clientId="1013399091835-rp8j3j1ihljvuk2u0krs2l75b01lsfsc.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="1013399091835-q1mit2g8oh5dsesr5p02qr6g5i0ijsd0.apps.googleusercontent.com">
       <html lang="en">
         <body className={`${roboto.className}  antialiased`}>
           {children}
