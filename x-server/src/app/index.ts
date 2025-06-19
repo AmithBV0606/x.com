@@ -4,6 +4,8 @@ import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@as-integrations/express5";
 import { User } from "./users";
 import cors from "cors";
+import DecodeJWT from "../services/decodeJWT";
+import { GraphqlContext } from "../types";
 
 export async function initServer() {
   const app = express();
@@ -28,7 +30,7 @@ export async function initServer() {
   //   },
   // });
 
-  const graphqlServer = new ApolloServer({
+  const graphqlServer = new ApolloServer<GraphqlContext>({
     typeDefs: `#graphql
 
       ${User.types}
@@ -46,7 +48,18 @@ export async function initServer() {
 
   await graphqlServer.start();
 
-  app.use("/graphql", expressMiddleware(graphqlServer));
+  app.use(
+    "/graphql",
+    expressMiddleware(graphqlServer, {
+      context: async ({ req, res }) => {
+        return {
+          user: req.headers.authorization
+            ? DecodeJWT(req.headers.authorization.split('Bearer ')[1])
+            : undefined,
+        };
+      },
+    })
+  );
 
   return app;
 }

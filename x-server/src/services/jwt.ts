@@ -1,8 +1,9 @@
 import jwt from "jsonwebtoken";
 import { User } from "../../generated/prisma";
+import { JWTUser } from "../types";
 
 async function generateTokenForUser(user: User) {
-  const payload = {
+  const payload: JWTUser = {
     id: user?.id,
     email: user?.email,
   };

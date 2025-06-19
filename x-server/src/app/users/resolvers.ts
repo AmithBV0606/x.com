@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GoogleTokenResult } from "../../types/index";
+import { GoogleTokenResult, GraphqlContext } from "../../types/index";
 import { prismaClient } from "../../client/db";
 import generateTokenForUser from "../../services/jwt";
 
@@ -42,6 +42,21 @@ const queries = {
 
     const jwtToken = await generateTokenForUser(user);
     return jwtToken;
+  },
+
+  getCurrentUser: async (parent: any, args: any, ctx: GraphqlContext) => {
+    // console.log(ctx);
+    const user = await ctx.user;
+
+    if (!user?.id) {
+      return null;
+    }
+
+    const userExists = await prismaClient.user.findUnique({
+      where: { id: user.id },
+    });
+
+    return userExists;
   },
 };
 
