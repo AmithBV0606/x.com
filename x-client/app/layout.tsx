@@ -3,6 +3,7 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { Toaster } from "react-hot-toast";
+import { Providers } from "@/components/Provider";
 
 const roboto = Roboto({
   weight: "400",
@@ -20,13 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <GoogleOAuthProvider clientId="1013399091835-q1mit2g8oh5dsesr5p02qr6g5i0ijsd0.apps.googleusercontent.com">
-      <html lang="en">
-        <body className={`${roboto.className}  antialiased`}>
-          {children}
-          <Toaster />
-        </body>
-      </html>
-    </GoogleOAuthProvider>
+    <html lang="en">
+      <body className={`${roboto.className}  antialiased`}>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
   );
 }

@@ -5,8 +5,12 @@ import { Button } from "./ui/button";
 import { BsFeather } from "react-icons/bs";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { BsThreeDots } from "react-icons/bs";
+import { useCurrentUser } from "@/hooks/user";
+import Image from "next/image";
 
 export default function LeftSidebar() {
+  const { user } = useCurrentUser();
+
   return (
     <div className="flex flex-col justify-between h-screen border-r border-gray-600">
       {/* Top part : */}
@@ -58,33 +62,51 @@ export default function LeftSidebar() {
       </div>
 
       {/* Bottom part(Desktop) : */}
-      <div className="hidden 2xl:flex 2xl:items-center 2xl:justify-between mb-8 mr-6 px-2 py-3 cursor-pointer rounded-full hover:bg-[#1D1D20]">
-        {/* User info display : */}
-        <div className="flex gap-2 pl-2 items-center">
-          <Avatar className="w-10 h-10">
-            <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>CN</AvatarFallback>
-          </Avatar>
+      {user && (
+        <div className="hidden 2xl:flex 2xl:items-center 2xl:justify-between mb-8 mr-6 px-2 py-3 cursor-pointer rounded-full hover:bg-[#1D1D20]">
+          {/* User info display : */}
+          <div className="flex gap-2 pl-2 items-center">
+            {user.profileImageURL && (
+              <Image
+                src={user.profileImageURL}
+                alt="Profile Pic"
+                width={45}
+                height={45}
+                className="border rounded-full border-gray-600"
+              />
+            )}
 
-          <div className="flex flex-col">
-            <span className="font-bold text-md">Name</span>
-            <span className="text-gray-400 font-thin text-sm">@username</span>
+            <div className="flex flex-col">
+              <span className="font-bold text-md">{user.firstName}</span>
+              <span className="text-gray-400 font-thin text-sm">
+                {user.email.split("@")[0]}
+              </span>
+            </div>
+          </div>
+
+          {/* Three dots : */}
+          <div className="pr-2">
+            <BsThreeDots />
           </div>
         </div>
-
-        {/* Three dots : */}
-        <div className="pr-2">
-          <BsThreeDots />
-        </div>
-      </div>
+      )}
 
       {/* Bottom part(Mobile) : */}
-      <div className="2xl:hidden ml-2">
-        <Avatar className="w-10 h-10 lg:w-12 lg:h-12 xl:h-14 xl:w-14 mb-4">
-          <AvatarImage src="https://github.com/shadcn.png" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
-      </div>
+      {user && (
+        <div className="2xl:hidden ml-2">
+          <Image
+            src={
+              user?.profileImageURL
+                ? user.profileImageURL
+                : "https://github.com/shadcn.png"
+            }
+            className="border rounded-full border-gray-400 mb-4"
+            alt="Profile Pic"
+            width={40}
+            height={40}
+          />
+        </div>
+      )}
     </div>
   );
 }

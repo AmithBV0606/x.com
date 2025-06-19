@@ -1,12 +1,18 @@
+"use client";
+
 import FeedCard from "@/components/feed-card";
 import LeftSidebar from "@/components/left-sidebar";
 import Navbar from "@/components/Navbar";
 import RightSidebar from "@/components/right-sidebar";
 import SearchBar from "@/components/search-bar";
 import TrendingHashtag from "@/components/TrendingHashtag";
+import { useCurrentUser } from "@/hooks/user";
 import MobileNavigationItems from "@/static/MobileNavigation";
 
 export default function Home() {
+  const { user } = useCurrentUser();
+  console.log(user);
+
   return (
     <div className="container mx-auto h-screen">
       <div className="grid grid-cols-12 w-full h-screen">
@@ -20,9 +26,11 @@ export default function Home() {
           <Navbar />
 
           {/* Login/Signup screen for mobile : */}
-          <div className="xl:hidden py-5 px-3 border-gray-600 border-b w-full">
-            <RightSidebar />
-          </div>
+          {!user && (
+            <div className="xl:hidden py-5 px-3 border-gray-600 border-b w-full">
+              <RightSidebar />
+            </div>
+          )}
 
           <FeedCard />
           <FeedCard />
@@ -40,7 +48,7 @@ export default function Home() {
             <SearchBar />
           </div>
 
-          <RightSidebar />
+          {!user && <RightSidebar />}
 
           <div>
             <TrendingHashtag />

@@ -5,8 +5,11 @@ import { CredentialResponse, GoogleLogin } from "@react-oauth/google";
 import toast from "react-hot-toast";
 import { graphqlClient } from "@/clients/api";
 import { verifyUserGoogleTokenQuery } from "@/graphql/query/user";
+import { useQueryClient } from "@tanstack/react-query";
 
 export default function RightSidebar() {
+  const queryClient = useQueryClient();
+
   const handleLoginWithGoogle = useCallback(
     async (cred: CredentialResponse) => {
       const googleToken = cred.credential;
@@ -23,10 +26,12 @@ export default function RightSidebar() {
       // console.log(verifyGoogleToken);
 
       if (verifyGoogleToken) {
-        window.localStorage.setItem("_xtoken_", verifyGoogleToken)
+        window.localStorage.setItem("_xtoken_", verifyGoogleToken);
       }
+
+      await queryClient.invalidateQueries({ queryKey: ["current-user"] });
     },
-    []
+    [queryClient]
   );
 
   return (

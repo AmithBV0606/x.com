@@ -15,3 +15,11 @@ export interface TrendingTopics {
   topic: string;
   tweets: string;
 }
+
+export interface User {
+  id: string;
+  firstName: string;
+  lastName?: string;
+  email: string;
+  profileImageURL?: string;
+}
